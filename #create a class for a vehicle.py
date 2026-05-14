@@ -14,4 +14,14 @@ class Car(Vehicle):
         super().__init__(make, model, year) 
         self.num_doors = num_doors
 
-class ElectricCar(car)
+class ElectricCar(Car):
+    def __init__(self, make, model, year, num_doors, battery_size):
+        super().__init__(make, model, year, num_doors)
+        self.battery_size = battery_size
+    
+    def get_info(self):
+        base = super().get_info()
+        return f"{base} ({self.num_doors} doors, {self.battery_size} kWh battery)"
+
+ev = ElectricCar("BYD", "Seal", 2025, 4, 82)
+print(ev.get_info())
